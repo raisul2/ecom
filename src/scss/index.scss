@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Lato:ital,wght@0,100;1,100&family=Poppins:ital,wght@0,200;0,300;1,100;1,300;1,400;1,500&family=Raleway:wght@100&family=Roboto:wght@300&family=Source+Sans+Pro:ital,wght@0,200;0,900;1,400;1,900&display=swap');
+@import './media';
+@import './varible';
+
+@mixin text ($font,$line,$Weight) {
+    font-size: $font;
+    font-weight: $Weight;
+    line-height: $line;
+    text-transform: capitalize;
+}
+
+@mixin flex($align, $just,$derection,$gap) {
+   display: flex;
+   align-items: $align;
+   justify-content: $just;
+   flex-direction: $derection;
+   gap: $gap;
+}
+//// navbar style
+
+
+
+
+
+
+
+
+
+
+
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    
+   font-family: $font
+
+}
+
+
+
+    
+h1{
+    @include respond-below(sm){
+       @include text(2rem, 115% , 200)
+   }
+    @include  respond-above(smm){
+       @include text(1.4em , 115% , 900);
+       
+   }
+}
+p{
+    @include respond-below(smm){
+       @include text(.8rem, 115% , 100)
+   }
+    @include  respond-above(smm){
+       @include text(1vw , 115% , 100) 
+   }
+}
+
+
+/// here navbar style ///@at-root
+
+
+.navbar{
+    .top{
+        height: 7vh;
+        border-bottom: 1px solid $gray;
+         @include flex(center,space-between ,row , 0 );
+         .left{
+             @include respond-below(sm){
+          display: none;      
+            }
+        }
+        .right{
+            @include respond-below(sm){
+                flex-basis: 100%;
+            }
+        }
+        div{
+            margin: $margin;
+            @include flex(center,space-between ,row , 20px );
+             
+            @include respond-below(md){
+                 margin: 0;
+                 @include flex(center,center ,row , 20px );
+            }
+           
+            p{
+                @include flex(center,center ,row , 10px );
+               
+                 
+             svg{
+                 color: $green;
+             }
+            }
+        }
+        
+    }
+
+
+    //// middle////@at-root
+
+
+    .middle{
+        height: 17vh;
+        background-color:$gray2;
+        border-bottom: 1px solid $gray;
+        @include flex(center,space-evenly ,row , 10px );
+          flex-wrap: wrap;
+          
+        .left{
+            background-color: white;
+            flex-basis:240px ;
+            margin-left: 100px;
+            height: inherit;
+            @include flex(center,space-evenly ,row , 20px );
+            @include respond-below(md){
+                
+                margin: 0;
+ 
+            }
+            @include respond-below(sm){
+                flex-basis: 100%;
+                margin: 0;
+ 
+            }
+            span{
+                font-size: 45px;
+                @include flex(center,space-evenly ,row , 6px );
+                font-family: $font3;
+                font-weight: 900;
+                letter-spacing: 8px;
+                 svg{
+                     color: $green;
+                 }
+            }
+
+        }
+
+        .middle-s{
+            margin-right: 100px;
+            height: 7vh;
+            flex-grow: 1;
+           @include flex(center,space-between ,row , 0 );
+           @include respond-below(sm){
+               flex-basis: 100%;
+               @include flex(center,space-between ,row , 0 );
+               height: 7vh;
+               background-color: $gray;
+               margin: 0;
+           }
+            
+           .navlink{
+        
+               height: inherit;
+               width: 80%;
+               @include flex(center,space-evenly ,row , 6px );
+           }
+
+          
+            .icon{
+               
+                height: 4vw;
+                @include flex(center,space-evenly ,row , 6px );
+                 width: 4vw;
+                 border-radius: $border-redus;
+                 border: 2px solid $gray;
+                 background-color: $white;
+                 @include respond-below(md){
+                     position: absolute;
+                     right: 0;
+                 }
+                 @include respond-below(sm){
+                    height: 10vw;
+                    width: 14vw;
+                    border: 3px solid $gray;
+                 }
+                 svg{
+                     font-size: 25px;
+                     color: black;
+                     font-weight: 900;
+                 }
+               position: relative;
+                 span{
+                     position: absolute;
+                     background-color:$tomato ;
+                      left: -9px;
+                      width: 15px;
+                      height: 30px;
+                      border-radius: $border-redus;
+                     
+                      @include flex(center,space-evenly ,row , 0 );
+
+                      p{
+                          color: $white;
+                      }
+                      
+                      
+                      
+                 }
+            }
+        }
+
+      
+    }
+
+    .pc{
+        @include flex(center,space-evenly ,row , 3vw );
+        @include respond-below(md){
+            display: none
+        }
+
+    }
+
+
+    .mobile{
+        display: none;
+      
+        @include respond-below(md){
+            @include flex(center,space-evenly, row , 3vw );
+            z-index: 20;
+        }
+position: relative;
+svg{
+    position: absolute;
+left: 0; 
+    font-size: 1.5em;
+    @include respond-below(sm){
+        left: 100px;
+    }
+}
+        .box{
+            background-color: $white;
+            box-shadow: $box-shadow;
+            width: 50vw;
+            position: absolute;
+            top:22px;
+            
+        }
+
+    }
+
+    
+    .link{
+        @include flex(center,space-evenly ,row , 0 );
+        @include respond-below(md){
+            @include flex(start,start ,row , 0 );
+        }
+
+        li{
+            list-style-type: none;
+            
+            a{
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 1.2vw;
+                font-weight: 900;
+                text-align: center;
+                display: block;
+                 padding: 6px;
+                 transition: all .3s  linear;
+                  cursor: pointer;
+                 &:hover{
+                     background-color: $tomato;
+                      box-shadow: $box-shadow;
+                      
+
+                 }
+                 border-radius: $border-redus;
+                @include respond-below(md){
+                    font-size: 1em;
+                    line-height: 40px;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+
+
+    .bottom{
+        height: 9vh;
+        background-color: $gray3;
+        @include flex(center,space-between ,row , 20px );
+        @include respond-below(md){
+            @include flex(start,start ,row , 0 );
+        }
+        @include respond-below(sm){
+            margin-top: 58px;
+
+        }
+
+
+        .left{
+            background-color:$gray;
+            height: inherit;
+           
+            display: flex;
+            margin-left: 100px;
+            
+            flex-basis: 240px;
+         
+             
+            
+             
+            h1{
+                margin: auto;
+            }
+
+            @include respond-below(md){
+               display: none;
+            }
+            
+        }
+
+        .right{
+            
+            height: inherit;
+            flex-grow: 1;
+             display: flex;
+             gap: 10px;
+              align-items: center;
+
+              @include respond-below(md){
+                margin: 0 10px 0 10px;
+            }
+            .select-style {
+                height: 40px;
+                padding: 0;
+                margin: 0;
+                border: 1px solid #ccc;
+                flex: 1;
+               
+                border-radius: $border-redus;
+                overflow: hidden;
+                background-color: #fff;
+                background: #fff;
+                position: relative;
+            }
+            .select-style select {
+                padding: 10px;
+                text-transform: uppercase;
+                font-weight: 900;
+                width: 130%;
+                border: none;
+                box-shadow: none;
+                background-color: transparent;
+                background-image: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+            }
+            .select-style:after {
+                top: 50%;
+                left: 85%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(0, 0, 0, 0);
+                border-top-color: #000000;
+                border-width: 5px;
+                margin-top: -2px;
+                z-index: 100;
+            }
+            .select-style select:focus {
+                outline: none;
+            }
+
+
+              .input{
+                  margin-right: 100px;
+                  height: inherit;
+                  background-color:$white;
+                   flex: 3;
+                  height: 40px;
+                  border-radius: $border-redus;
+                  @include flex(center,space-evenly ,row , 0 );
+                  @include respond-below(md){
+                    flex: 1;
+                    margin: 0;
+                }
+                  input{
+                      height: inherit;
+                      width: 70%;
+                      border: none;
+                      outline: none;
+                  }
+                  svg{
+                      font-size: 1.5em;
+                  }
+              }
+
+        }
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+////// here is hero section style start////
+
+.hero{
+    height: auto;
+     margin: $margin;
+     background-color: #ccc;
+     @include respond-below(md){
+         margin: 0 10px 0 10px;
+     }
+
+     .img-hero{
+         height: 25vh;
+margin-top: 40px;
+border-radius: $border-redus;
+background-image: url('../img/hero.jpg');
+background-size: cover;
+@include flex(center,center ,row , 0 );
+   
+.text{
+    @include flex(center,space-evenly ,column , 20px );
+    div{
+@include flex(center,center ,  row, 10px );
+      span{
+          color: $green;
+      }
+    }
+}
+   
+     }
+}
+
+
+
+
+/////// shoping grid create here ////
+ 
+.shoping{
+    margin: $margin;
+    margin-top: 40px;
+    @include respond-below(md){
+        margin: 40px 10px 0 10px;
+      
+    }
+    display: grid;
+     grid-template-columns: repeat(4, 1fr);
+      
+  grid-gap: 20px;
+
+  @include respond-below(sm){
+    grid-template-columns:  1fr;
+    
+  }
+//// here is left section///////////
+    .left{
+        height:auto;
+      
+        grid-area: 1/1/2/2;
+        @include respond-below(sm){
+            grid-area: 1/1/2/1;
+            
+        }
+    }
+
+
+
+    //////// here is right section //////////
+
+
+
+
+
+
+    .right{
+        
+        grid-area: 1/2/2/5;
+        @include respond-below(sm){
+            grid-area: 2/1/3/1;
+            
+        }
+
+        
+        .top{
+            height: 8vh;
+            @include flex(center,space-between ,  row, 10px );
+            @include respond-below(sm){
+                height: 17vh;
+                @include flex(center,center,  row, 10px );
+            }
+           border-bottom: 1px solid $gray;
+           margin-bottom: 10px;
+           flex-wrap: wrap;
+           .select-style{
+            @include flex(center,center ,  row, 10px );
+          
+              select{
+                  padding: 8px;
+                  border: 1px solid $gray;
+              }
+           }
+        }
+
+     
+
+        .box-2{
+            height: 60vh;
+             transition: all .5s linear;
+            @include flex(center,space-between ,  column, 0 );
+            @include respond-below(sm){
+                height: 80vh;
+            }
+            border-radius: $border-redus;
+            border: 2px solid $gray;
+            &:hover{
+                border: 2px solid $green;
+                .icon{
+                    display: flex;
+                }
+            }
+            img{
+                object-fit: cover;
+                width: 70%;
+                max-width: 500px;
+                height: auto;
+               
+                
+            }
+    
+             .icon{
+                @include flex(center,space-between ,  row, 10px );
+                   display: none;
+                
+                span{
+                    padding: 10px;
+                    border-radius: $border-redus;
+                    border: 1px solid $green;
+                    transition: all .2s linear;
+                    &:hover{
+                        background-color: $green;
+                    }
+                }
+               svg{
+                   
+                font-size: 23px;   
+                   color: black;  
+                   
+               }
+            }
+
+
+            .text-box{
+                               @include flex(center,space-between , column, 10px );
+                margin-bottom: 20px;
+               
+                button{
+                    transition: all .2s linear;
+                     padding: 10px;
+                     text-transform: uppercase;
+                     background-color: transparent;
+                     border: 1px solid $green;
+                     border-radius: $border-redus;
+                }
+                
+
+                h3{
+                    text-transform: capitalize;
+                }
+                h1{
+                    color: $green;
+                }
+            }
+
+            &:hover{
+                button{
+                    background-color: $green;
+                    color: white;
+                }
+            }
+        }
+
+      .room{
+        display: grid;
+        grid-template-columns: repeat(auto-fit , minmax(250px, 1fr) );
+       grid-gap: 20px;
+      }
+
+    }
+}
+
+
+.pagination{
+    
+    @include flex(center, space-between , row ,10px );
+    
+    height: 30px;
+    list-style-type: none;
+
+    a{
+        border: 2px solid $gray;
+        padding: 5px 10px 5px 10px;
+      
+      
+        cursor: pointer;
+        height: inherit;
+        border-radius: $border-redus;
+        &:hover{
+            background-color: $green;
+        }
+    }
+
+}
+
+.active a{
+    background-color: $green;
+ 
+    color: $white;
+}
+
+
+
+.shop{
+   
+    width: inherit;
+ border: 1px solid $gray2;
+ min-height: 50vh;
+ margin: auto;
+ border-radius: $border-redus;
+ box-shadow: $box-shadow;
+ margin-bottom: 40px;
+
+ 
+    h1 , p{
+        display: block;
+        width: inherit;
+        padding: 10px;
+        border-bottom: 1px solid $gray2;
+         margin: 20px;
+         transition: all .2s ease-in ;
+          cursor: pointer;
+        text-transform:capitalize;
+         &:hover{
+             background-color: $tomato;
+             border-radius: $border-redus;
+              box-shadow: $box-shadow;
+              color: white;
+         }
+         
+    }
+
+     h1{
+         text-transform: uppercase;
+         background-color: $gray2;
+         color: black;
+    
+         margin: 0;
+
+     }
+  
+    
+      
+}
+
+
+.footer{
+    margin-top: 30px;
+   .top{
+       @include flex(center,center,row ,40px );
+       height: 10vh;
+       border-top: 1px solid $gray;
+       padding: 10px;
+       flex-wrap: wrap;
+       margin-bottom: 100px;
+       
+       .box{
+        padding: 8px;
+        width: 300px;
+        @include flex(center,center,row ,10px );
+        outline: none;
+        border-radius: $border-redus;
+       }
+       input{
+           
+        height: inherit;
+        width: 250px;
+        padding: inherit;
+        border: 1px solid $gray;
+        border-radius: $border-redus;
+       
+        
+         
+       }
+
+       button{
+           padding: 8px;
+            border-radius: $border-redus;
+         background-color: $tomato;
+         border: none;
+         box-shadow: $box-shadow;
+         
+       }
+
+
+
+   }
+
+   .bottom{
+       height: 50vh;
+       @include respond-below(sm){
+           height: 100vh;
+       }
+       background-color: $gray2;
+       flex-wrap: wrap;
+       @include flex(center,space-evenly,row ,20px );
+       text-align: center;
+       .icon{
+        @include flex(center,center,row ,40px );
+        flex-wrap: wrap;
+        height: 20vh;
+     
+        span{
+            @include flex(center,center,row ,10px );
+
+        }
+       }
+       p{
+            
+           font-size: 20px;
+           text-transform: capitalize;
+           display: block;
+           padding: 20px;
+       }
+   }
+}
